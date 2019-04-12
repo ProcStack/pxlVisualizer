@@ -145,7 +145,17 @@ void main(){
 
 	float ang=sin(fr/130.0+sin(fx+fr/20.)*PI-cos(fy)*PI)*180.;
 	ang=torad(ang);
-	vec2 xy=kalido(vec2(fx,fy), ang, 1.);
+	vec2 xy;
+	
+	if(mode==2){
+		ang=sin(fr/130.0+sin(fx+fr/20.)*PI-cos(fy)*PI)*180.;
+		ang=torad(ang);
+		xy=kalido(vec2(fx,fy), ang, 1.);
+	}else if(mode==3){
+		ang=sin(fr/130.0+sin(fy+fr/20.)*PI-cos(fx)*PI)*180.;
+		ang=torad(ang);
+		xy=kalido(vec2(fx,fy), ang, 1.);
+	}
 	float scaler=5.;
 	fx=(xy.x)*scaler;
 	fy=(xy.y)*scaler;
